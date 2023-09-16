@@ -5,17 +5,18 @@ import Footer from './Footer';
 import AdminLogin from './login/AdminLogin';
 import StudentLogin from './login/StudentLogin';
 import CompanyLogin from './login/CompanyLogin';
-
+import StudentRegister from './register/studentRegister';
 
 function MainPage() {
     return (
         <>
-                <Header />
-                <MainContainer />
-                <Footer/>
-                {/* <AdminLogin/> */}
-                {/* <StudentLogin/> */}
-                {/* <CompanyLogin/> */}
+            <Header />
+            {/* <AdminLogin /> */}
+            <StudentRegister />
+            <Footer />
+            {/* <MainContainer /> */}
+            {/* <StudentLogin/> */}
+            {/* <CompanyLogin/> */}
         </>
     );
 }

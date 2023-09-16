@@ -1,10 +1,11 @@
 import React from 'react';
 import MainPage from './pages/MainPage';
+import './index.css'
 
 function App() {
   return (
     <>
-        <MainPage />
+      <MainPage />
     </>
   );
 }
