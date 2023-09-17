@@ -9,6 +9,7 @@ function Footer() {
             component="footer"
             sx={{
                 mt: 'auto',
+                mb: 0,
                 py: 2,
                 backgroundColor: '#212330', // Background color for the footer
                 color: '#fff', // Text color for the footer
@@ -24,7 +25,7 @@ function Footer() {
                 <Typography variant="body2" align="center" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     {/* GitHub icon and link */}
                     <Link
-                        href="https://github.com/shashank-u03/IT314_G28_Software_Engineering"
+                        href="https://github.com/G28-Placement-Cell"
                         target="_blank"
                         rel="noopener noreferrer"
                         color="inherit"
