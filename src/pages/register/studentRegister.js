@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid, Avatar, TextField, Button, Typography } from "@mui/material";
-import { CenterFocusStrong } from "@mui/icons-material";
+// import { CenterFocusStrong } from "@mui/icons-material";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -9,13 +9,17 @@ import FormLabel from '@mui/material/FormLabel';
 import { styled, alpha } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import EditIcon from '@mui/icons-material/Edit';
-import Divider from '@mui/material/Divider';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import { useState } from "react";
+// import EditIcon from '@mui/icons-material/Edit';
+// import Divider from '@mui/material/Divider';
+// import ArchiveIcon from '@mui/icons-material/Archive';
+// import FileCopyIcon from '@mui/icons-material/FileCopy';
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -72,6 +76,46 @@ const StyledMenu = styled((props) => (
 
 function StudentRegister() {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [branch, setBranch] = React.useState('');
+    const [regfor, setRegfor] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [altemail, setAltemail] = React.useState('');
+    const [altpassword, setAltpassword] = React.useState('');
+
+    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState(false);
+
+    const verify = (e) => {
+        if (password !== altpassword || email === altemail || password === '') {
+            e.preventDefault();
+            setError(true);
+        } else {
+            setSubmitted(true);
+            setError(false);
+        }
+        if (password !== altpassword) {
+            e.preventDefault();
+            alert("Passwords do not match");
+        }
+        else if (email === altemail) {
+            e.preventDefault();
+            alert("Please enter different email id");
+
+        }
+        else if (!error && submitted) {
+            alert("Verified");
+        }
+    }
+
+    const handleChange = (event) => {
+        setBranch(event.target.value);
+        setSubmitted(false);
+    };
+    const handleReg = (event) => {
+        setRegfor(event.target.value);
+        setSubmitted(false);
+    };
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -85,12 +129,12 @@ function StudentRegister() {
             <Typography variant="h4" sx={{ fontWeight: "bold", mt: 2, textAlign: "center" }}>
                 Student Registration
             </Typography>
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", border: '1px solid' }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 
-                <form>
+                <form onSubmit={verify}>
 
-                    <Container sx={{ mb: 1, display: "flex", flexDirection: 'column ', justifyContent: "center", alignItems: "center", }} >
-                        <Grid container sx={{ justifyContent: "flex-start" }}>
+                    <Container sx={{ mb: 4, display: "flex", flexDirection: 'column ', justifyContent: "center", alignItems: "center", }} >
+                        <Grid container sx={{ justifyContent: "flex-start", mb: 0 }}>
                             <Grid item md={2}>
                                 {/* <div
                             style={{
@@ -144,7 +188,7 @@ function StudentRegister() {
                                     </Grid>
                                     {/* <TextField label="Student ID" variant="outlined" fullWidth sx={{ mt: 3 }} required /> */}
                                     <TextField
-                                        label="student_id"
+                                        label="Student_id"
                                         id="student_id"
                                         name="name"
                                         type="number"
@@ -155,33 +199,36 @@ function StudentRegister() {
                                     />
                                     {/* <TextField label="Alternate Email Address" variant="outlined" fullWidth required sx={{ mt: 2 }} /> */}
                                     <TextField
-                                        label="email"
+                                        label="Email"
                                         id="email"
                                         name="email"
                                         type="email"
                                         variant="outlined"
                                         fullWidth
                                         required
+                                        onChange={(e) => setEmail(e.target.value)}
                                         sx={{ mt: 2 }}
                                     />
                                     <TextField
-                                        label="alternate-email"
+                                        label="Elternate-email"
                                         id="alt-email"
                                         name="alt-email"
                                         type="email"
                                         variant="outlined"
                                         fullWidth
+                                        onChange={(e) => setAltemail(e.target.value)}
                                         required
                                         sx={{ mt: 2 }}
                                     />
                                     <TextField
-                                        label="password"
+                                        label="Password"
                                         id="password"
                                         name="password"
                                         type="password"
                                         variant="outlined"
                                         fullWidth
                                         required
+                                        onChange={(e) => setPassword(e.target.value)}
                                         sx={{ mt: 2 }}
                                     />
                                     <TextField
@@ -192,6 +239,7 @@ function StudentRegister() {
                                         variant="outlined"
                                         fullWidth
                                         required
+                                        onChange={(e) => setAltpassword(e.target.value)}
                                         sx={{ mt: 2 }}
                                     />
                                     {/* <TextField label="Skype ID" variant="outlined" required fullWidth sx={{ mt: 2 }} /> */}
@@ -210,7 +258,7 @@ function StudentRegister() {
 
                                     {/* <TextField label="Mobile Number" variant="outlined" required fullWidth sx={{ mt: 2 }} /> */}
                                     <TextField
-                                        label="mobile number"
+                                        label="Mobile number"
                                         id="phone"
                                         name="phone"
                                         type="tel"
@@ -220,7 +268,7 @@ function StudentRegister() {
                                         sx={{ mt: 2 }}
                                     />
                                     <TextField
-                                        label="alternate mobile number"
+                                        label="Alternate mobile number"
                                         id="phone"
                                         name="phone"
                                         type="tel"
@@ -274,7 +322,7 @@ function StudentRegister() {
                                     <Grid container spacing={2} sx={{}}>
                                         <Grid item md={6}>
                                             <TextField
-                                                label="father name"
+                                                label="Father name"
                                                 id="fath-name"
                                                 name="fath-name"
                                                 type="text"
@@ -285,7 +333,7 @@ function StudentRegister() {
                                         </Grid>
                                         <Grid item md={6}>
                                             <TextField
-                                                label="mother name"
+                                                label="Mother name"
                                                 id="moth-name"
                                                 name="moth-name"
                                                 type="text"
@@ -369,18 +417,40 @@ function StudentRegister() {
                                             />
                                         </Grid>
                                     </Grid>
-                                    <TextField
-                                        label="Branch"
-                                        id="branch"
-                                        name="branch"
-                                        variant="outlined"
-                                        fullWidth
-                                        type="text"
-                                        required
-                                        sx={{ mt: 2 }}
-                                    />
-                                    <TextField label="Registering For" variant="outlined" fullWidth sx={{ mt: 2 }} />
-                                    <div>
+                                    <Box sx={{ minWidth: 120, mt: 2 }}>
+                                        <FormControl fullWidth>
+                                            <InputLabel id="branch" required>Branch</InputLabel>
+                                            <Select
+                                                labelId="branch"
+                                                id="branch"
+                                                value={branch}
+                                                label="branch"
+                                                onChange={handleChange}
+
+                                            >
+                                                <MenuItem value={"ictcs"}>ICT with CS</MenuItem>
+                                                <MenuItem value={"ict"}>ICT</MenuItem>
+                                                <MenuItem value={"mnc"}>MnC</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                    <Box sx={{ minWidth: 120, mt: 2 }}>
+                                        <FormControl fullWidth>
+                                            <InputLabel id="regfor" required>Registering For</InputLabel>
+                                            <Select
+                                                labelId="regfor"
+                                                id="regfor"
+                                                value={regfor}
+                                                label="regfor"
+                                                onChange={handleReg}
+
+                                            >
+                                                <MenuItem value={"placement"}>Placement</MenuItem>
+                                                <MenuItem value={"si"}>SI</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                    {/* <div>
                                         <Button
                                             id="demo-customized-button"
                                             aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -414,20 +484,21 @@ function StudentRegister() {
                                                 MnC
                                             </MenuItem>
                                         </StyledMenu>
-                                    </div>
+                                    </div> */}
+
 
                                     <Grid container spacing={2} sx={{ mt: 0.3 }}>
                                         <Grid item md={6}>
-                                            <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+                                            <Button for="resume" component="label" fullWidth variant="contained" startIcon={<CloudUploadIcon />}>
                                                 Upload Resume
-                                                <VisuallyHiddenInput type="file" />
+                                                <VisuallyHiddenInput id="resume" required type="file" />
                                             </Button>
 
                                         </Grid>
                                         <Grid item md={6}>
-                                            <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+                                            <Button for="photo" component="label" v fullWidth variant="contained" startIcon={<CloudUploadIcon />}>
                                                 Upload Photo
-                                                <VisuallyHiddenInput type="file" />
+                                                <VisuallyHiddenInput type="file" id="photo" required />
                                             </Button>
                                         </Grid>
                                     </Grid>
@@ -438,9 +509,11 @@ function StudentRegister() {
                         </Grid>
                         {/* submit button */}
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            <Button type="submit" variant="contained">
+                            <Button fullWidth type="submit" variant="contained" sx={{}}>
                                 Submit
-                            </Button>
+                            </Button>{
+
+                            }
                         </div>
                     </Container >
 
