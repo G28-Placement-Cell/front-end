@@ -13,8 +13,8 @@ function MainPage() {
         <>
             <Header />
             {/* <AdminLogin /> */}
-            {/* <StudentRegister /> */}
-            <CompanyRegister />
+            <StudentRegister />
+            {/* <CompanyRegister /> */}
             <Footer />
             {/* <MainContainer /> */}
             {/* <StudentLogin/> */}

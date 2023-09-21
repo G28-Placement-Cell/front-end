@@ -8,6 +8,7 @@ import FormLabel from '@mui/material/FormLabel';
 import { styled, alpha } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import PersonIcon from '@mui/icons-material/Person';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
@@ -27,6 +28,7 @@ const VisuallyHiddenInput = styled('input')({
 
 function StudentRegister() {
     const [branch, setBranch] = React.useState('');
+    const [domain, setDomain] = React.useState('');
     const [regfor, setRegfor] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -61,6 +63,10 @@ function StudentRegister() {
         setBranch(event.target.value);
         setSubmitted(false);
     };
+    const handleDomain = (event) => {
+        setDomain(event.target.value);
+        setSubmitted(false);
+    }
     const handleReg = (event) => {
         setRegfor(event.target.value);
         setSubmitted(false);
@@ -126,7 +132,7 @@ function StudentRegister() {
                                         sx={{ mt: 2 }}
                                     />
                                     <TextField
-                                        label="Elternate-email"
+                                        label="Alternate-email"
                                         id="alt-email"
                                         name="alt-email"
                                         type="email"
@@ -345,6 +351,24 @@ function StudentRegister() {
                                     </Box>
                                     <Box sx={{ minWidth: 120, mt: 2 }}>
                                         <FormControl fullWidth>
+                                            <InputLabel id="domain" required={true}>Domain</InputLabel>
+                                            <Select
+                                                labelId="seldomain"
+                                                id="domain"
+                                                value={domain}
+                                                label="domain"
+                                                onChange={handleDomain}
+
+                                            >
+                                                <MenuItem value={"it"}>IT</MenuItem>
+                                                <MenuItem value={"ec"}>EC</MenuItem>
+                                                <MenuItem value={"ct"}>CT</MenuItem>
+                                                <MenuItem value={"other"}>Other</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                    <Box sx={{ minWidth: 120, mt: 2 }}>
+                                        <FormControl fullWidth>
                                             <InputLabel id="regfor" required={true}>Registering For</InputLabel>
                                             <Select
                                                 labelId="regfor"
@@ -368,7 +392,7 @@ function StudentRegister() {
 
                                         </Grid>
                                         <Grid item md={6}>
-                                            <Button for="photo" component="label" v fullWidth variant="contained" startIcon={<CloudUploadIcon />}>
+                                            <Button for="photo" component="label" v fullWidth variant="contained" startIcon={<PersonIcon />}>
                                                 Upload Photo
                                                 <VisuallyHiddenInput type="file" id="photo" required={true} />
                                             </Button>
