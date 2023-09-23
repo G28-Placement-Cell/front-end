@@ -7,8 +7,47 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar/AppBar';
 import Toolbar from '@mui/material/Toolbar/Toolbar';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLoginMutation } from '../../slices/studentApislice';
+import { setCredentials } from '../../slices/authslice'
+import { toast } from 'react-toastify';
 
 function StudentLogin() {
+
+    const [studentid, setStudentid] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const [login, { isLoading }] = useLoginMutation();
+    const { studentInfo } = useSelector((state) => state.auth);
+    console.log(studentInfo);
+    useEffect(() => {
+        if (studentInfo) {
+            // navigate('/');
+            window.location.href = 'http://localhost:3001'
+            // href = "http://localhost:3001/";
+        }
+    }, [studentInfo]);
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        try {
+
+            const res = await login({ studentid, password }).unwrap();
+            dispatch(setCredentials({ ...res }))
+            // href = "http://localhost:3001/";
+            // navigate('http://localhost:3001/');
+            //link to http://localhost:3001 with payload
+            window.location.href = 'http://localhost:3001'
+        }
+        catch (err) {
+            toast.error(err?.data?.message || err.error)
+        }
+    }
 
     const heading = {
         textAlign: 'center',
@@ -51,16 +90,19 @@ function StudentLogin() {
                             Student Login
                         </Typography>
                         {/* Admin login form */}
-                        <form>
+                        <form onSubmit={submitHandler}>
                             <TextField
-                                label="Email"
-                                id="email"
-                                name="email"
-                                type="email"
+                                label="student_id"
+                                id="student_id"
+                                name="student_id"
+                                type="number"
                                 variant="outlined"
                                 fullWidth
                                 required
                                 style={inputStyles}
+                                onChange={(e) => {
+                                    setStudentid(e.target.value);
+                                }}
                             />
                             <TextField
                                 label="Password"
@@ -71,7 +113,11 @@ function StudentLogin() {
                                 fullWidth
                                 required
                                 style={inputStyles}
+                                onChange={(e) => {
+                                    setPassword(e.target.value)
+                                }}
                             />
+
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px', padding: '10px' }}>
                                 {/* Submit button */}
                                 <Button type="submit" variant="contained" color="primary">

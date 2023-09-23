@@ -1,8 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../slices/authslice';
+import { useNavigate } from 'react-router-dom';
+import { useLogoutMutation } from '../slices/studentApislice';
+
 
 function Header() {
+  const studentInfo = useSelector((state) => state.auth.studentInfo);
+  const dispatch = useDispatch();
+  const [logoutapicall] = useLogoutMutation();
+
+  const navigate = useNavigate();
+  const logoutHandler = async () => {
+    try {
+      await logoutapicall().unwrap();
+      dispatch(logout());
+      navigate('/');
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <AppBar position="sticky" style={{ backgroundColor: "#2B2442" }}>
       <Toolbar>
@@ -14,8 +35,16 @@ function Header() {
         <Link to="/">
           <Button color="inherit">Home</Button>
         </Link>
-        <Button color="inherit">Contact us</Button>
-        <Button color="inherit">About Us</Button>
+        {studentInfo ? <>
+          <Button color="inherit">Profile</Button>
+          <Button color="inherit" onClick={logoutHandler}>Logout</Button>
+          <Button color="inherit">Contact us</Button>
+          <Button color="inherit">About Us</Button>
+        </> : <>
+          <Button color="inherit">Contact us</Button>
+          <Button color="inherit">About Us</Button>
+        </>}
+
       </Toolbar>
 
     </AppBar >

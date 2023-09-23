@@ -46,7 +46,7 @@ function CompanyRegister() {
                 <form id="com_reg" onSubmit={verify}>
 
                     <Container sx={{ mb: 10, display: "flex", flexDirection: 'column ', justifyContent: "center", alignItems: "center", }} >
-                        <Grid container md={8} sx={{ justifyContent: "center", mb: 0 }}>
+                        <Grid item container md={8} sx={{ justifyContent: "center", mb: 0 }}>
                             {/* <Grid item sx={{ borderRight: 0, borderColor: "divider", mr: 5 }}> */}
                             <div style={{ padding: "2rem 0 5rem" }}>
                                 <Grid container spacing={2}>

@@ -186,8 +186,8 @@ function StudentRegister() {
                                     />
                                     <TextField
                                         label="Alternate mobile number"
-                                        id="phone"
-                                        name="phone"
+                                        id="alt-phone"
+                                        name="alt-phone"
                                         type="tel"
                                         pattern="[1-9]{1}[0-9]{9}"
                                         fullWidth

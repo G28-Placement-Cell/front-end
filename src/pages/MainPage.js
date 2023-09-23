@@ -8,12 +8,15 @@ import CompanyLogin from './login/CompanyLogin';
 import StudentRegister from './register/studentRegister';
 import CompanyRegister from './register/CompanyRegister';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MainPage() {
     return (
         <>
             <BrowserRouter>
                 <Header />
+                <ToastContainer />
                 <Routes>
                     <Route path="/" element={<MainContainer />} />
                     <Route path="/admin/login" element={<AdminLogin />} />
