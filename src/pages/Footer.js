@@ -9,11 +9,10 @@ function Footer() {
             component="footer"
             sx={{
                 mt: 'auto',
-                mb: 0,
                 py: 2,
                 backgroundColor: '#212330', // Background color for the footer
                 color: '#fff', // Text color for the footer
-                position: 'static',
+                position: 'fixed',
                 bottom: 0,
                 width: '100%',
             }}

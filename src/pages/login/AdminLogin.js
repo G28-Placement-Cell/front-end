@@ -28,7 +28,7 @@ function AdminLogin() {
 
     return (
         <>
-            <AppBar position="static">
+            {/* <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Placement Cell
@@ -37,8 +37,8 @@ function AdminLogin() {
                     <Button color="inherit" sx={{ mx: 1 }}>Contact us</Button>
                     <Button color="inherit" sx={{ mx: 1 }}>About Us</Button>
                 </Toolbar>
-            </AppBar>
-            <Grid container>
+            </AppBar> */}
+            <Grid container >
                 {/* Left 60% - Image */}
                 <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} item xs={8}>
                     <img src={admin} alt="Admin Image" style={{ width: '73%', height: '87%', alignItems: 'center' }} />
@@ -84,7 +84,7 @@ function AdminLogin() {
                         </form>
                     </div>
                 </Grid>
-            </Grid>
+            </Grid >
         </>
     );
 }

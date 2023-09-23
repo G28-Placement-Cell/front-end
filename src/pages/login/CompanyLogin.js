@@ -28,7 +28,7 @@ function CompanyLogin() {
 
     return (
         <>
-            <AppBar position="static">
+            {/* <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Placement Cell
@@ -37,7 +37,7 @@ function CompanyLogin() {
                     <Button color="inherit" sx={{ mx: 1 }}>Contact us</Button>
                     <Button color="inherit" sx={{ mx: 1 }}>About Us</Button>
                 </Toolbar>
-            </AppBar>
+            </AppBar> */}
             <Grid container>
                 {/* Left 60% - Image */}
                 <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} item xs={8}>

@@ -7,15 +7,26 @@ import StudentLogin from './login/StudentLogin';
 import CompanyLogin from './login/CompanyLogin';
 import StudentRegister from './register/studentRegister';
 import CompanyRegister from './register/CompanyRegister';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function MainPage() {
     return (
         <>
-            <Header />
+            <BrowserRouter>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<MainContainer />} />
+                    <Route path="/admin/login" element={<AdminLogin />} />
+                    <Route path="/student/login" element={<StudentLogin />} />
+                    <Route path="/company/login" element={<CompanyLogin />} />\
+                    <Route path="/student/register" element={<StudentRegister />} />
+                    <Route path="/company/register" element={<CompanyRegister />} />
+                </Routes>
+                <Footer />
+            </BrowserRouter>
             {/* <AdminLogin /> */}
-            <StudentRegister />
+            {/* <StudentRegister /> */}
             {/* <CompanyRegister /> */}
-            <Footer />
             {/* <MainContainer /> */}
             {/* <StudentLogin/> */}
             {/* <CompanyLogin/> */}
