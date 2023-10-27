@@ -19,7 +19,15 @@ export const studentApislice = apislice.injectEndpoints({
                 message: "logged out"
             })
         }),
+        register: builder.mutation({
+            query: (data) => ({
+                url: `${student_url}/register`,
+                method: 'POST',
+                body: data,
+                message: "ok"
+            })
+        }),
     })
 })
 
-export const { useLoginMutation,useLogoutMutation } = studentApislice;
+export const { useLoginMutation, useLogoutMutation, useRegisterMutation } = studentApislice;
