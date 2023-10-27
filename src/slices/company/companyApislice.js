@@ -1,12 +1,12 @@
 import { apislice } from "./apislice";
 
-const company_url = 'api/company'
+const student_url = 'api/student'
 
-export const companyApislice = apislice.injectEndpoints({
+export const studentApislice = apislice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
             query: (data) => ({
-                url: `${company_url}/login`,
+                url: `${student_url}/login`,
                 method: 'POST',
                 body: data,
                 message: "ok"
@@ -14,14 +14,14 @@ export const companyApislice = apislice.injectEndpoints({
         }),
         logout: builder.mutation({
             query: () => ({
-                url: `${company_url}/logout`,
+                url: `${student_url}/logout`,
                 method: 'POST',
                 message: "logged out"
             })
         }),
         register: builder.mutation({
             query: (data) => ({
-                url: `${company_url}/register`,
+                url: `${student_url}/register`,
                 method: 'POST',
                 body: data,
                 message: "ok"
@@ -30,4 +30,4 @@ export const companyApislice = apislice.injectEndpoints({
     })
 })
 
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation } = companyApislice;
+export const { useLoginMutation, useLogoutMutation, useRegisterMutation } = studentApislice;
