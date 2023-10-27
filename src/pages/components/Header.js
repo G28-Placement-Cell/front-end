@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../slices/authslice';
+import { logout } from '../../slices/student/authslice';
 import { useNavigate } from 'react-router-dom';
-import { useLogoutMutation } from '../slices/studentApislice';
-
+import { useLogoutMutation } from '../../slices/student/studentApislice';
 
 function Header() {
   const studentInfo = useSelector((state) => state.auth.studentInfo);

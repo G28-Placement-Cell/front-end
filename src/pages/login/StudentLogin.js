@@ -10,8 +10,8 @@ import Toolbar from '@mui/material/Toolbar/Toolbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLoginMutation } from '../../slices/studentApislice';
-import { setCredentials } from '../../slices/authslice'
+import { useLoginMutation } from '../../slices/student/studentApislice';
+import { setCredentials } from '../../slices/student/authslice';
 import { toast } from 'react-toastify';
 
 function StudentLogin() {
