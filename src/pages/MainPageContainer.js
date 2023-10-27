@@ -6,13 +6,13 @@ import { AccountCircle, Business, SettingsSuggest } from '@mui/icons-material';
 
 function MainContainer() {
 
-    
+
 
     return (
         <Container>
             <Box sx={{ mt: 4, mb: 4 }}>
                 <Typography variant="h4" gutterBottom>
-                    Announcments
+                    Announcements
                 </Typography>
                 <Typography variant="body1">
                     This is your app's information and description.
@@ -76,7 +76,6 @@ function MainContainer() {
                         </Stack>
                     </Paper>
                 </Grid>
-
             </Grid>
         </Container>
     );

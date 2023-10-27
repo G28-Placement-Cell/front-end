@@ -27,13 +27,29 @@ const VisuallyHiddenInput = styled('input')({
 
 
 function StudentRegister() {
-    const [branch, setBranch] = React.useState('');
-    const [domain, setDomain] = React.useState('');
-    const [regfor, setRegfor] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
-    const [altemail, setAltemail] = React.useState('');
-    const [altpassword, setAltpassword] = React.useState('');
+    const [name,setName] = useState('');
+    const [surname,setSurname] = useState('');
+    const [student_id,setStudent_id] = useState('');
+    const [fath_name,setFath_name] = useState('');
+    const [moth_name,setMoth_name] = useState('');
+    const [permanent_address,setPermanent_address] = useState('');
+    const [current_address,setCurrent_address] = useState('');
+    const [cpi,setCpi] = useState('');
+    const [current_backlogs,setCurrent_backlogs] = useState('');
+    const [total_backlogs,setTotal_backlogs] = useState('');
+    const [skype_id,setSkype_id] = useState('');
+    const [phone,setPhone] = useState('');
+    const [alt_phone,setAlt_phone] = useState('');
+    const [dob,setDob] = useState('');
+    const [tenth_percentage,setTenth_percentage] = useState('');
+    const [twelth_percentage,setTwelth_percentage] = useState('');
+    const [branch, setBranch] = useState('');
+    const [domain, setDomain] = useState('');
+    const [regfor, setRegfor] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [altemail, setAltemail] = useState('');
+    const [altpassword, setAltpassword] = useState('');
 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
@@ -79,7 +95,7 @@ function StudentRegister() {
             </Typography>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 
-                <form id="stu_reg" onSubmit={verify}>
+                <form id="stu_reg" onSubmit={verify} enctype="multipart/form-data" method="post">
 
                     <Container sx={{ mb: 10, display: "flex", flexDirection: 'column ', justifyContent: "center", alignItems: "center", }} >
                         <Grid container sx={{ justifyContent: "center", mb: 0 }}>
