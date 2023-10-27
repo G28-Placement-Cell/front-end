@@ -13,8 +13,8 @@
 
 // export default store;
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './slices/authslice';
-import { apislice } from './slices/apislice';
+import authReducer from './slices/student/authslice';
+import { apislice } from './slices/student/apislice';
 
 const store = configureStore({
     reducer: {
