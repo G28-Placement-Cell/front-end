@@ -46,7 +46,7 @@ function MainContainer() {
                         <SettingsSuggest fontSize="large" sx={{ fontSize: '200px' }} />
                         {/* Add your Citizen login/register form here */}
                         <Stack spacing={2}>
-                            <Link to='/admin/login'>
+                            <Link to='https://placement-cell-admin.vercel.app/'>
                                 <Button fullWidth variant="outlined" color="primary">
                                     Login
                                 </Button>

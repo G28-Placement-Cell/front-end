@@ -32,8 +32,8 @@ function Header() {
           </Link>
         </Typography>
         {<>
-          <Button color="inherit">Contact us</Button>
-          <Button color="inherit">About Us</Button>
+          <Button href="https://placement-cell-student.vercel.app/ContactUs" color="inherit">Contact us</Button>
+          <Button href="https://placement-cell-student.vercel.app/aboutus" color="inherit">About Us</Button>
         </>}
 
       </Toolbar>
