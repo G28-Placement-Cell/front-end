@@ -31,15 +31,7 @@ function Header() {
             Placement Cell
           </Link>
         </Typography>
-        <Link to="/">
-          <Button color="inherit">Home</Button>
-        </Link>
-        {studentInfo ? <>
-          <Button color="inherit">Profile</Button>
-          <Button color="inherit" onClick={logoutHandler}>Logout</Button>
-          <Button color="inherit">Contact us</Button>
-          <Button color="inherit">About Us</Button>
-        </> : <>
+        {<>
           <Button color="inherit">Contact us</Button>
           <Button color="inherit">About Us</Button>
         </>}

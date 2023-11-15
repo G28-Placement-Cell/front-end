@@ -7,18 +7,17 @@ import { AccountCircle, Business, SettingsSuggest } from '@mui/icons-material';
 function MainContainer() {
 
 
-
     return (
         <Container>
-            <Box sx={{ mt: 4, mb: 4 }}>
+            {/* <Box sx={{ mt: 4, mb: 4 }}>
                 <Typography variant="h4" gutterBottom>
                     Announcements
                 </Typography>
                 <Typography variant="body1">
                     This is your app's information and description.
                 </Typography>
-            </Box>
-            <Grid container spacing={3}>
+            </Box> */}
+            <Grid container spacing={3} sx={{ mt: 9 }}>
                 <Grid item md={4}>
                     <Paper sx={{ p: 2, textAlign: 'center' }}>
                         <Typography variant="h6" gutterBottom>
@@ -26,12 +25,12 @@ function MainContainer() {
                         </Typography>
                         <AccountCircle fontSize="large" sx={{ fontSize: '200px' }} />
                         <Stack spacing={2}>
-                            <Link to="/student/register">
+                            <Link to="https://placement-cell-student.vercel.app/register">
                                 <Button fullWidth variant="contained" color="primary">
                                     Register
                                 </Button>
                             </Link>
-                            <Link to="/student/login">
+                            <Link to="https://placement-cell-student.vercel.app/">
                                 <Button fullWidth variant="outlined" color="primary" >
                                     Login
                                 </Button>
@@ -63,12 +62,12 @@ function MainContainer() {
                         <Business fontSize="large" sx={{ fontSize: '200px' }} />
                         {/* Add your Contractor login/register form here */}
                         <Stack spacing={2}>
-                            <Link to="/company/register">
+                            <Link to="https://placement-cell-company.vercel.app/register">
                                 <Button fullWidth variant="contained" color="primary">
                                     Register
                                 </Button>
                             </Link>
-                            <Link to="/company/login">
+                            <Link to="https://placement-cell-company.vercel.app/">
                                 <Button fullWidth variant="outlined" color="primary" >
                                     Login
                                 </Button>
