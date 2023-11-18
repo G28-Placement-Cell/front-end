@@ -17,7 +17,7 @@ function MainContainer() {
                     This is your app's information and description.
                 </Typography>
             </Box> */}
-            <Grid container spacing={3} sx={{ mt: 9 }}>
+            <Grid container spacing={3} sx={{ ml: 'auto', mt: 10, mb: 10 }}>
                 <Grid item md={4}>
                     <Paper sx={{ p: 2, textAlign: 'center' }}>
                         <Typography variant="h6" gutterBottom>
@@ -61,7 +61,7 @@ function MainContainer() {
                         </Typography>
                         <Business fontSize="large" sx={{ fontSize: '200px' }} />
                         {/* Add your Contractor login/register form here */}
-                        <Stack spacing={2}>
+                        <Stack spacing={2} >
                             <Link to="https://placement-cell-company.vercel.app/register">
                                 <Button fullWidth variant="contained" color="primary">
                                     Register
