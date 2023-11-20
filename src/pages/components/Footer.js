@@ -12,7 +12,7 @@ function Footer() {
                 py: 2,
                 backgroundColor: '#212330', // Background color for the footer
                 color: '#fff', // Text color for the footer
-                position: 'fixed',
+                position: 'sticky',
                 bottom: 0,
                 width: '100%',
             }}
