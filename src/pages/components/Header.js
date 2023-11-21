@@ -31,12 +31,6 @@ function Header() {
             Placement Cell
           </Link>
         </Typography>
-        {<>
-        
-          <Button href="https://placement-cell-student.vercel.app/ContactUs" color="inherit">Contact us</Button>
-          <Button href="https://placement-cell-student.vercel.app/aboutus" color="inherit">About Us</Button>
-        </>}
-
       </Toolbar>
 
     </AppBar >
